@@ -22,12 +22,20 @@ type DisconnectTelephoneNumberOrderType struct {
 	XMLName          xml.Name `xml:"DisconnectTelephoneNumberOrderType"`
 	TelephoneNumbers []string `xml:"TelephoneNumberList>TelephoneNumber"`
 	DisconnectMode   string   `xml:"DisconnectMode,omitempty"`
-	Protected        string   `xml:"UNCHANGED,omitempty"`
+	Protected        string   `xml:"Protected,omitempty"`
 }
 
 // DisconnectTelephoneNumberOrder is an order to disconnect a list of telephone numbers.
 type DisconnectTelephoneNumberOrder struct {
 	XMLName                        xml.Name                            `xml:"DisconnectTelephoneNumberOrder"`
+	Name                           string                              `xml:"name,omitempty"`
+	CustomerOrderID                string                              `xml:"CustomerOrderID,omitempty"`
+	DisconnectTelephoneNumberOrder *DisconnectTelephoneNumberOrderType `xml:"DisconnectTelephoneNumberOrderType"`
+}
+
+// DisconnectTelephoneNumberOrderRequest is the order request inside a disconnect order response.
+type DisconnectTelephoneNumberOrderRequest struct {
+	XMLName                        xml.Name                            `xml:"orderRequest"`
 	ID                             string                              `xml:"id,omitempty"`
 	Name                           string                              `xml:"name,omitempty"`
 	CustomerOrderID                string                              `xml:"CustomerOrderID,omitempty"`
@@ -37,8 +45,9 @@ type DisconnectTelephoneNumberOrder struct {
 
 // DisconnectTelephoneNumberOrderResponse is the response for CreateDisconnectOrder.
 type DisconnectTelephoneNumberOrderResponse struct {
-	XMLName      xml.Name                       `xml:"DisconnectTelephoneNumberOrderResponse"`
-	OrderRequest DisconnectTelephoneNumberOrder `xml:"orderRequest"`
+	XMLName      xml.Name                              `xml:"DisconnectTelephoneNumberOrderResponse"`
+	OrderRequest DisconnectTelephoneNumberOrderRequest `xml:"orderRequest"`
+	OrderStatus  string                                `xml:"OrderStatus"`
 }
 
 // CreateDisconnectOrder creates a new disconnect order.
