@@ -1,6 +1,9 @@
 Bandwidth HTTP Voice & v1 Messaging SDK [![GoDoc](https://godoc.org/Bandwidth/go-bandwidth?status.svg)](https://godoc.org/github.com/Bandwidth/go-bandwidth) [![Build Status](https://travis-ci.org/Bandwidth/go-bandwidth.svg)](https://travis-ci.org/Bandwidth/go-bandwidth)
 ===============
 
+> # Deprecation Notice
+> This project is deprecated.
+
 
 Bandwidth [HTTP Voice & v1 Messaging](https://dev.bandwidth.com) Go SDK
 
